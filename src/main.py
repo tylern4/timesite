@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from time import time, time_ns
+from time import time_ns
+from datetime import datetime
 
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
-    return {"@timestamp": time_ns()}
+    return {"@timestamp": datetime.now(), "datetime": time_ns()}
